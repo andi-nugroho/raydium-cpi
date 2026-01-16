@@ -134,7 +134,7 @@ raydium-cpi/
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/prince981620/raydium-cpi.git
+git clone https://github.com/andi-nugroho/raydium-cpi.git
 cd raydium-cpi
 ```
 
