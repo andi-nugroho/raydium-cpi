@@ -1,0 +1,33 @@
+################################################################
+# Manage raydium-cpi deployment through Crypto Infrastructure as Code
+################################################################
+
+addon "svm" {
+    rpc_api_url = input.rpc_api_url
+    network_id = input.network_id
+}
+
+action "deploy_raydium_cpi" "svm::deploy_program" {
+    description = "Deploy raydium_cpi program"
+    program = svm::get_program_from_anchor_project("raydium_cpi") 
+    authority = signer.authority
+    payer = signer.payer
+    // Optional: if you want to deploy the program via a cheatcode when targeting a Surfnet, set `instant_surfnet_deployment = true`
+    // Deploying via a cheatcode will write the program data directly to the program account, rather than sending transactions.
+    // This will make deployments instantaneous, but is deviating from how the deployments will take place on devnet/mainnet.
+    // instant_surfnet_deployment = true
+}
+
+variable "usd1" {
+    value = "USD1ttGY1N17NEEHLmELoaybftRBUSErhqYiQzvEmuB"
+    editable = true
+}
+
+action "fund_usdc" "svm::setup_surfnet" {
+    set_token_account {
+        public_key = signer.authority.public_key
+        token = variable.usd1
+        token_program = "token2020"
+        amount = 1000000000
+    }
+}
