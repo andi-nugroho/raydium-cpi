@@ -1,0 +1,10 @@
+╰─❯ anchor deploy --provider.cluster https://api.devnet.solana.com 
+Deploying cluster: https://api.devnet.solana.com
+Upgrade authority: *****/id.json
+Deploying program "raydium_cpi"...
+Program path: *****/raydium-cpi/target/deploy/raydium_cpi.so...
+Program Id: EXZHGtUuunmGujBhM6WxhCbZEqyN9bsAnsvXTyg1rqF
+
+Signature: 5QYAMww6AMzvzgMtyS622qmUp3eSbxd3WrDD4G8fPEK9xuru5QtPPQ4qrJiBiXGcdXukmNyYkCZsg5DmfU6dFFfa
+
+Deploy success
